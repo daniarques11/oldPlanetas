@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+repositories {
+    mavenLocal()
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.hamcrest:hamcrest-all:1.3'
+}
+
+group = 'edu.elsmancs'
+version = '1.0-SANPSHOT'
+description = 'Planets'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+
+application {
+    mainClassName = 'domain.App'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class' : 'domain.App'
+    }
+}
