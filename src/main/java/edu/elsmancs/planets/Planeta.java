@@ -13,20 +13,21 @@ public enum Planeta {
 	NEPTUNE (1.024e+26, 2.4746e7);
 	
 	private double G = 6.67300E-11;
-	private final double weight;
+	private final double mass;
 	private final double radius;
 	private final double gravityOnSurface;
 	
 	
-	private Planeta(double weight, double radius) {
-		this.weight = weight;
+	private Planeta(double mass, double radius) {
+		this.mass = mass;
 		this.radius = radius;
-		this.gravityOnSurface = G * weight / radius;
+		this.gravityOnSurface = G * mass / (radius*radius);
 	}
 
 
-	public double pesoSuperficie(double peso) {
-		return 0;
+	public double pesoSuperficie(double personWeightOnEarth) {
+		double personMass = personWeightOnEarth / EARTH.gravityOnSurface;
+		return personMass * gravityOnSurface;
 	}
 	 
 }
